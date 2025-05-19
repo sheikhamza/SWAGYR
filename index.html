@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rockstar Intro</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap" rel="stylesheet">
+  <style>
+    * {
+       user-select: none;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background: black;
+        width: 100%;
+        height: 100%;
+        font-family: "Moo Lah Lah", sans-serif;
+        cursor: none;
+    }
+    .t-shirt-hange {
+        transform-origin: top center;
+    }
+
+     .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+</head>
+<body>
+    <div class="custom-cursor"><img src="./sticker 1.png" class="h-[50px]" alt=""></div>
+  <!-- Mask Animation -->
+  <div class="svg flex items-center justify-center fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-gradient-to-b from-black to-[#ca1a1b]">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <mask id="viMask">
+          <rect width="100%" height="100%" fill="#000" />
+          <g class="vi-mask-group">
+            <text
+              x="50%"
+              y="50%"
+              font-size="250"
+              text-anchor="middle"
+              fill="white"
+              dominant-baseline="middle"
+              font-family="Arial Black"
+            >
+              SY
+            </text>
+          </g>
+        </mask>
+      </defs>
+      <image href="./bg-1.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#viMask)" />
+    </svg>
+  </div>
+
+  <!-- Main Content (Initially Hidden) -->
+  <div class="main w-full rotate-[-10deg] scale-[1.7] hidden">
+    <div class="landing overflow-hidden relative w-full h-screen bg-black">
+      <div class="navbar absolute top-0 left-0 z-[10] w-full pt-5 px-10">
+        <div class="logo flex items-center gap-7">
+          <div class="lines flex flex-col gap-[5px]">
+            <div class="line w-15 h-2 bg-white"></div>
+            <div class="line w-8 h-2 bg-white"></div>
+            <div class="line w-5 h-2 bg-white"></div>
+          </div>
+          <div class="flex items-center">
+              <img src="./Swagyr Logo Red White.png" class="h-[80px]" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="imagesdiv relative    overflow-hidden w-full h-screen">
+        <img class="absolute scale-[1.8] rotate-[-3deg] bg top-0 left-0 w-full h-full object-cover" src="./bg-swag.png" />
+        <div class="text text-white flex flex-col gap-3 absolute lg:top-20 top-[19%] left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg] z-[99]">
+          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:-ml-40">Not Just</h1>
+          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:ml-20">In You.</h1>
+          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:-ml-40">SWAGYR</h1>
+          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:ml-[25%]">Is you.</h1>
+        </div>
+    </div>
+    <div class="w-[100vw] flex justify-center items-center absolute lg:top-[15%] top-[12%] left-[13%] lg:-left-[9%]">
+        <img class="t-shirt-hange lg:h-[50vh] h-[35vh] scale-[3] rotate-[-20deg]" src="./t-shirt.png"/>
+    </div>
+
+      <div class="btmbar text-white absolute bottom-0 left-0 w-full py-15 px-10 bg-gradient-to-t from-black to-transparent">
+        <div class="flex gap-4 items-center">
+          <i class="text-4xl ri-arrow-down-line"></i>
+          <h3 class="text-xl font-[Helvetica_Now_Display]">Scroll Down</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    const cursor = document.querySelector('.custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.2,
+        ease: "power2.out"
+      });
+    });
+
+    window.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Disable Dev Tools Key Combos
+    // document.addEventListener("keydown", function (e) {
+    //   if (
+    //     e.key === "F12" ||
+    //     (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(e.key.toLowerCase())) ||
+    //     (e.ctrlKey && e.key.toLowerCase() === "u")
+    //   ) {
+    //     e.preventDefault();
+    //   }
+    // });
+
+    const tl = gsap.timeline();
+
+    tl.to(".vi-mask-group", {
+      rotate: 10,
+      duration: 2,
+      ease: "Power4.easeInOut",
+      transformOrigin: "50% 50%",
+    }).to(".vi-mask-group", {
+      scale: 10,
+      duration: 2,
+      delay: -1.8,
+      ease: "Expo.easeInOut",
+      transformOrigin: "50% 50%",
+      opacity: 0,
+      onUpdate: function () {
+        if (this.progress() >= 0.9) {
+          document.querySelector(".svg").remove();
+          document.querySelector(".main").classList.remove("hidden");
+          animateMain();
+          this.kill();
+        }
+      },
+    });
+
+    function animateMain() {
+        gsap.to(".main", {
+            scale: 1,
+            rotate: 0,
+            duration: 2,
+            ease: "Expo.easeInOut",
+        });
+
+        gsap.to(".bg", {
+            scale: 1.1,
+            rotate: 0,
+            duration: 2,
+            ease: "Expo.easeInOut",
+        });
+
+        gsap.to(".t-shirt-hange", {
+            scale: 1.4,
+            x: "-50%",
+            bottom: "-25%",
+            rotate: 0,
+            duration: 2,
+            ease: "Expo.easeInOut",
+        });
+
+        gsap.to(".text", {
+            scale: 1,
+            rotate: 0,
+            duration: 2,
+            ease: "Expo.easeInOut",
+        });
+
+        document.querySelector(".main").addEventListener("mousemove", (e) => {
+            const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
+            gsap.to(".main .text", { x: `${xMove * 0.4}%` });
+            gsap.to(".bg", { x: xMove * 1.7 });
+        });
+
+        gsap.to(".t-shirt-hange", {
+            rotate: 10,
+            duration: 1.5,
+            ease: "power1.inOut",
+            yoyo: true,
+            repeat: -1,
+        });
+
+        gsap.set(".t-shirt-hange", {
+            transformOrigin: "top center"
+        });
+    }
+  </script>
+</body>
+</html>
