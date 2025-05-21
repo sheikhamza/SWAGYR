@@ -20,8 +20,11 @@
         background: black;
         width: 100%;
         height: 100%;
-        font-family: "Moo Lah Lah", sans-serif;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         cursor: none;
+    }
+    .moo-font{
+      font-family: "Moo Lah Lah", sans-serif;
     }
     .t-shirt-hange {
         transform-origin: top center;
@@ -39,73 +42,165 @@
   </style>
 </head>
 <body>
-    <div class="custom-cursor"><img src="./sticker 1.png" class="h-[50px]" alt=""></div>
-  <!-- Mask Animation -->
-  <div class="svg flex items-center justify-center fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-gradient-to-b from-black to-[#ca1a1b]">
-    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <mask id="viMask">
-          <rect width="100%" height="100%" fill="#000" />
-          <g class="vi-mask-group">
-            <text
-              x="50%"
-              y="50%"
-              font-size="250"
-              text-anchor="middle"
-              fill="white"
-              dominant-baseline="middle"
-              font-family="Arial Black"
-            >
-              SY
-            </text>
-          </g>
-        </mask>
-      </defs>
-      <image href="./bg-1.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#viMask)" />
-    </svg>
+  <div class="custom-cursor fixed pointer-events-none z-50">
+    <img id="cursorImage" src="./sticker-1.png" class="h-[50px]" alt="">
   </div>
-
-  <!-- Main Content (Initially Hidden) -->
-  <div class="main w-full rotate-[-10deg] scale-[1.7] hidden">
-    <div class="landing overflow-hidden relative w-full h-screen bg-black">
-      <div class="navbar absolute top-0 left-0 z-[10] w-full pt-5 px-10">
-        <div class="logo flex items-center gap-7">
-          <div class="lines flex flex-col gap-[5px]">
-            <div class="line w-15 h-2 bg-white"></div>
-            <div class="line w-8 h-2 bg-white"></div>
-            <div class="line w-5 h-2 bg-white"></div>
-          </div>
-          <div class="flex items-center">
-              <img src="./Swagyr Logo Red White.png" class="h-[80px]" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="imagesdiv relative    overflow-hidden w-full h-screen">
-        <img class="absolute scale-[1.8] rotate-[-3deg] bg top-0 left-0 w-full h-full object-cover" src="./bg-swag.png" />
-        <div class="text text-white flex flex-col gap-3 absolute lg:top-20 top-[19%] left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg] z-[99]">
-          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:-ml-40">Not Just</h1>
-          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:ml-20">In You.</h1>
-          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:-ml-40">SWAGYR</h1>
-          <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:ml-[25%]">Is you.</h1>
-        </div>
+  
+  <div id="main">
+    <!-- Mask Animation -->
+    <div class="svg flex items-center justify-center fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-gradient-to-b from-black to-[#ca1a1b]">
+      <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <mask id="viMask">
+            <rect width="100%" height="100%" fill="#000" />
+            <g class="vi-mask-group">
+              <text
+                x="50%"
+                y="50%"
+                font-size="250"
+                text-anchor="middle"
+                fill="white"
+                dominant-baseline="middle"
+                font-family="Arial Black"
+              >
+                SY
+              </text>
+            </g>
+          </mask>
+        </defs>
+        <image href="./bg-1.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#viMask)" />
+      </svg>
     </div>
-    <div class="w-[100vw] flex justify-center items-center absolute lg:top-[15%] top-[12%] left-[13%] lg:-left-[9%]">
-        <img class="t-shirt-hange lg:h-[50vh] h-[35vh] scale-[3] rotate-[-20deg]" src="./t-shirt.png"/>
-    </div>
-
-      <div class="btmbar text-white absolute bottom-0 left-0 w-full py-15 px-10 bg-gradient-to-t from-black to-transparent">
-        <div class="flex gap-4 items-center">
-          <i class="text-4xl ri-arrow-down-line"></i>
-          <h3 class="text-xl font-[Helvetica_Now_Display]">Scroll Down</h3>
+    <div class="navbar z-[10] w-full pt-5 px-10 fixed">
+      <div class="logo flex items-center gap-7">
+        <div class="lines flex flex-col gap-[5px]">
+          <div class="line w-15 h-2 bg-white"></div>
+          <div class="line w-8 h-2 bg-white"></div>
+          <div class="line w-5 h-2 bg-white"></div>
+        </div>
+        <div class="flex items-center">
+            <img src="./logo.png" class="h-[80px] logo-image" alt="">
         </div>
       </div>
     </div>
+    <!-- Main Content (Initially Hidden) -->
+    <div class="main w-full rotate-[-10deg] scale-[1.7] hidden">
+      <div class="landing overflow-hidden relative w-full h-screen bg-black">
+        <div class="imagesdiv relative    overflow-hidden w-full h-screen">
+          <img class="absolute scale-[1.8] rotate-[-3deg] bg top-0 left-0 w-full h-full object-cover" src="./bg-swag.png" />
+          <div class="text text-white moo-font flex flex-col gap-3 absolute lg:top-20 top-[19%] left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg] z-[99]">
+            <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:-ml-40">Not Just</h1>
+            <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:ml-20">In You.</h1>
+            <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:-ml-40">SWAGYR</h1>
+            <h1 class="lg:text-[5rem] text-[18vw] leading-none lg:ml-[25%]">Is you.</h1>
+          </div>
+      </div>
+      <div class="w-[100vw] flex justify-center items-center absolute lg:top-[15%] top-[12%] left-[13%] lg:-left-[9%]">
+          <img class="t-shirt-hange lg:h-[50vh] h-[35vh] scale-[3] rotate-[-20deg]" src="./t-shirt.png"/>
+      </div>
+
+        <div class="btmbar text-white absolute bottom-0 left-0 w-full py-15 px-10 bg-gradient-to-t from-black to-transparent">
+          <div class="flex gap-4 items-center">
+            <i class="text-4xl ri-arrow-down-line"></i>
+            <h3 class="text-xl font-[Helvetica_Now_Display]">Scroll Down</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Release Product -->
+    <section class="bg-white text-black py-16 px-6 md:px-12 white-page">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-extrabold tracking-wide uppercase">
+            New Release
+          </h2>
+          <p class="mt-4 text-gray-600 text-lg">
+            Discover the latest additions to our collection.
+          </p>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Product Card -->
+          <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col max-h-[80vh]">
+            <!-- Image Section -->
+            <div class="h-[70%]">
+              <img src="./product-1.jpg" class="h-[100%] w-full " alt="Product 1">
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-4 flex max-h-[30%] flex-col justify-between flex-grow text-white bg-black">
+              <div>
+                <h3 class="text-xl font-bold mb-2">Product Name</h3>
+                <p class="text-gray-400 mb-4">Description here</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-red-500 font-bold text-lg">$99</span>
+                <a href="#" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition duration-300">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duplicate product cards here if needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white px-6 py-10 bg-[url('./sticker 1.png')]">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+        <!-- Address -->
+        <div>
+          <h3 class="text-red-600 font-bold text-lg mb-2">Address</h3>
+          <p>PAKISTAN</p>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <h3 class="text-red-600 font-bold text-lg mb-2">Email</h3>
+          <p><a href="#" class="hover:underline">www.hamzabussiness24.com</a></p>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <h3 class="text-red-600 font-bold text-lg mb-2">Phone</h3>
+          <p>0312 3743909</p>
+        </div>
+
+        <!-- Opening Hours -->
+        <div>
+          <h3 class="text-red-600 font-bold text-lg mb-2">Opening Hours</h3>
+          <p>Mon - Sun</p>
+          <p>24/7 Hours</p>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <span class="text-white font-bold text-xl italic">SWAGYR</span>
+          <span class="text-red-600 text-2xl"><img src="./sticker-1.png" class="h-[10vh]" alt=""></span> 
+        </div>
+        
+        <!-- Copyright -->
+        <p class="mt-4 md:mt-0">Copyright 2026 © All Right Reserved Design And Develop by <span class="text-red-600">Hamza Seikh</span></p>
+      </div>
+    </footer>
   </div>
+
+
+  <!-- ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
     const cursor = document.querySelector('.custom-cursor');
+    const cursorImage = document.querySelector('#cursorImage');
+    const section = document.querySelector(".white-page");
+
     window.addEventListener('mousemove', (e) => {
       gsap.to(cursor, {
         x: e.clientX,
@@ -113,6 +208,13 @@
         duration: 0.2,
         ease: "power2.out"
       });
+    });
+    section.addEventListener("mouseenter", () => {
+      cursorImage.src = "./sticker-2.png"; // 🔄 Change to your alternate image
+    });
+
+    section.addEventListener("mouseleave", () => {
+      cursorImage.src = "./sticker-1.png"; // 🔁 Reset to original image
     });
 
     window.addEventListener('contextmenu', function (e) {
@@ -154,55 +256,77 @@
       },
     });
 
-    function animateMain() {
-        gsap.to(".main", {
-            scale: 1,
-            rotate: 0,
-            duration: 2,
-            ease: "Expo.easeInOut",
-        });
+  function animateMain() {
 
-        gsap.to(".bg", {
-            scale: 1.1,
-            rotate: 0,
-            duration: 2,
-            ease: "Expo.easeInOut",
-        });
+    gsap.to(".main", {
+        scale: 1,
+        rotate: 0,
+        duration: 2,
+        ease: "Expo.easeInOut",
+    });
 
-        gsap.to(".t-shirt-hange", {
-            scale: 1.4,
-            x: "-50%",
-            bottom: "-25%",
-            rotate: 0,
-            duration: 2,
-            ease: "Expo.easeInOut",
-        });
+    gsap.to(".bg", {
+        scale: 1.1,
+        rotate: 0,
+        duration: 2,
+        ease: "Expo.easeInOut",
+    });
 
-        gsap.to(".text", {
-            scale: 1,
-            rotate: 0,
-            duration: 2,
-            ease: "Expo.easeInOut",
-        });
+    gsap.to(".t-shirt-hange", {
+        scale: 1.4,
+        x: "-50%",
+        bottom: "-25%",
+        rotate: 0,
+        duration: 2,
+        ease: "Expo.easeInOut",
+    });
 
-        document.querySelector(".main").addEventListener("mousemove", (e) => {
-            const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
-            gsap.to(".main .text", { x: `${xMove * 0.4}%` });
-            gsap.to(".bg", { x: xMove * 1.7 });
-        });
+    gsap.to(".text", {
+        scale: 1,
+        rotate: 0,
+        duration: 2,
+        ease: "Expo.easeInOut",
+    });
 
-        gsap.to(".t-shirt-hange", {
-            rotate: 10,
-            duration: 1.5,
-            ease: "power1.inOut",
-            yoyo: true,
-            repeat: -1,
-        });
+    document.querySelector(".main").addEventListener("mousemove", (e) => {
+        const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
+        gsap.to(".main .text", { x: `${xMove * 0.4}%` });
+        gsap.to(".bg", { x: xMove * 1.7 });
+    });
 
-        gsap.set(".t-shirt-hange", {
-            transformOrigin: "top center"
-        });
+    gsap.to(".t-shirt-hange", {
+        rotate: 10,
+        duration: 1.5,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1,
+    });
+
+    gsap.set(".t-shirt-hange", {
+        transformOrigin: "top center"
+    });
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Simple animation on scroll
+  ScrollTrigger.create({
+    trigger: "#main",
+    start: "50% top", 
+
+    onEnter: () => {
+      document.querySelectorAll('.line').forEach((el) => {
+        el.classList.add("bg-[#000]");
+      });
+      document.querySelector(".logo-image").src = "black-logo.png";
+    },
+    onLeaveBack: () => {
+      document.querySelectorAll('.line').forEach((el) => {
+        el.classList.remove("bg-[#000]");
+      });
+      document.querySelector(".logo-image").src = "logo.png";
     }
+  });
   </script>
 </body>
 </html>
