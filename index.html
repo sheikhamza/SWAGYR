@@ -42,6 +42,8 @@
   </style>
 </head>
 <body>
+  <div id="desktop-flag" class="hidden md:block"></div>
+
   <div class="custom-cursor fixed pointer-events-none z-50">
     <img id="cursorImage" src="./sticker-1.png" class="h-[50px]" alt="">
   </div>
@@ -71,7 +73,8 @@
         <image href="./bg-1.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#viMask)" />
       </svg>
     </div>
-    <div class="navbar z-[10] w-full pt-5 px-10 fixed">
+      <!-- Navabr -->
+    <div class="navbar z-[10] w-full pt-5 px-10 lg:fixed absolute">
       <div class="logo flex items-center gap-7">
         <div class="lines flex flex-col gap-[5px]">
           <div class="line w-15 h-2 bg-white"></div>
@@ -200,6 +203,7 @@
     const cursor = document.querySelector('.custom-cursor');
     const cursorImage = document.querySelector('#cursorImage');
     const section = document.querySelector(".white-page");
+    const navbar = document.querySelector(".navbar");
 
     window.addEventListener('mousemove', (e) => {
       gsap.to(cursor, {
@@ -209,12 +213,13 @@
         ease: "power2.out"
       });
     });
+    
     section.addEventListener("mouseenter", () => {
-      cursorImage.src = "./sticker-2.png"; // 🔄 Change to your alternate image
+      cursorImage.src = "./sticker-2.png";
     });
 
     section.addEventListener("mouseleave", () => {
-      cursorImage.src = "./sticker-1.png"; // 🔁 Reset to original image
+      cursorImage.src = "./sticker-1.png";
     });
 
     window.addEventListener('contextmenu', function (e) {
@@ -309,24 +314,19 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Simple animation on scroll
-  ScrollTrigger.create({
-    trigger: "#main",
-    start: "50% top", 
-
-    onEnter: () => {
-      document.querySelectorAll('.line').forEach((el) => {
-        el.classList.add("bg-[#000]");
-      });
-      document.querySelector(".logo-image").src = "black-logo.png";
+  gsap.to(navbar, {
+    scrollTrigger: {
+      trigger: "#main",
+      start: "32% top",    
+      end: "32% top",  
+      scrub: true,
     },
-    onLeaveBack: () => {
-      document.querySelectorAll('.line').forEach((el) => {
-        el.classList.remove("bg-[#000]");
-      });
-      document.querySelector(".logo-image").src = "logo.png";
-    }
+    backgroundColor: "rgba(0, 0, 0, 0.452)",
+    duration: 1,
+    ease: "power1.inOut",
   });
+
+
   </script>
 </body>
 </html>
